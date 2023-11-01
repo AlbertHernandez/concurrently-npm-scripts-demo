@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/main.js",
     "start:dev": "tsnd --inspect=0.0.0.0:9229 --respawn src/main.ts",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "concurrently 'npm:test:unit' 'npm:test:e2e'",
     "test:unit": "jest --testPathPattern=tests/unit",
     "test:e2e": "jest --testPathPattern=tests/e2e",
     "prepare": "husky install",
@@ -42,6 +42,7 @@
     "@types/jest": "^29.2.5",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
+    "concurrently": "^8.2.2",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
